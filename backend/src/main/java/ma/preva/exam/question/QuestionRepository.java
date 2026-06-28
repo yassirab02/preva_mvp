@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
-    List<Question> findByExamIdOrderByOrderAsc(Long examId);
+    List<Question> findByExamIdOrderByOrderIndexAsc(Long examId);
 }

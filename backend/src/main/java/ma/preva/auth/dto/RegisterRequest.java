@@ -9,5 +9,5 @@ public record RegisterRequest(
         @NotBlank @Email String email,
         @NotBlank @Size(min = 8, max = 100) String password,
         @NotBlank String requestedUniversity,
-        @NotBlank String requestedMajor
+        String requestedMajor
 ) {}

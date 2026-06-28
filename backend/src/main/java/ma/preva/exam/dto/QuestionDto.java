@@ -21,7 +21,7 @@ public record QuestionDto(
                 .map(c -> ChoiceDto.from(c, showAnswers))
                 .toList();
         return new QuestionDto(
-                q.getId(), q.getText(), q.getPoints(), q.getOrder(),
+                q.getId(), q.getText(), q.getPoints(), q.getOrderIndex(),
                 showAnswers ? q.getCorrectAnswer() : null,
                 showAnswers ? q.getExplanation() : null,
                 q.getQuestionType(), choices

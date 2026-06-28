@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import ma.preva.common.BaseEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ma.preva.content.semester.Semester;
 import ma.preva.student.Student;
 import ma.preva.user.User;
@@ -25,6 +27,7 @@ public class AccessControl extends BaseEntity {
     private Semester semester;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "access_type", nullable = false)
     private AccessType accessType = AccessType.TRIAL;
 

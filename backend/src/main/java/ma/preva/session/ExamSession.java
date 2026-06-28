@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import ma.preva.common.BaseEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ma.preva.exam.Exam;
 import ma.preva.user.User;
 
@@ -27,6 +29,7 @@ public class ExamSession extends BaseEntity {
     private Exam exam;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     private SessionStatus status = SessionStatus.IN_PROGRESS;
 

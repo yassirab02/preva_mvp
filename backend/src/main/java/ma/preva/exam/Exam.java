@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import ma.preva.common.BaseEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ma.preva.content.module.Module;
 import ma.preva.exam.question.Question;
 
@@ -33,6 +35,7 @@ public class Exam extends BaseEntity {
     private BigDecimal passingScore;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     private ExamStatus status = ExamStatus.DRAFT;
 
@@ -44,6 +47,6 @@ public class Exam extends BaseEntity {
     private String sourcePdfUrl;
 
     @OneToMany(mappedBy = "exam", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OrderBy("\"order\" ASC")
+    @OrderBy("orderIndex ASC")
     private List<Question> questions = new ArrayList<>();
 }

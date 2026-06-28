@@ -23,8 +23,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             role: result.user.role,
             accessToken: result.accessToken,
           };
-        } catch {
-          return null;
+        } catch (err: any) {
+          const message = err?.response?.data?.message ?? 'Invalid credentials';
+          throw new Error(message);
         }
       },
     }),

@@ -16,7 +16,7 @@ public record ModuleDto(
         LocalDateTime createdAt
 ) {
     public static ModuleDto from(Module m) {
-        return new ModuleDto(m.getId(), m.getName(), m.getDescription(), m.getOrder(),
+        return new ModuleDto(m.getId(), m.getName(), m.getDescription(), m.getOrderIndex(),
                 m.isActive(), m.getCoverImageUrl(), m.getSemester().getId(),
                 m.getSemester().getLabel(), m.getCreatedAt());
     }

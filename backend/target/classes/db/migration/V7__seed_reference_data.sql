@@ -1,15 +1,3 @@
--- Default SuperAdmin user (password: Admin@1234)
-INSERT INTO users (name, email, password_hash, role, account_status, created_at, updated_at)
-VALUES (
-    'Super Admin',
-    'admin@preva.ma',
-    '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/LewdBPj4J/HL9oRZi',
-    'ADMIN',
-    'ACTIVE',
-    NOW(),
-    NOW()
-);
-
 -- Seed universities
 INSERT INTO universities (name, slug, country, city, is_active, created_at, updated_at) VALUES
     ('Université Mohammed V de Rabat', 'um5-rabat', 'Morocco', 'Rabat', TRUE, NOW(), NOW()),

@@ -4,11 +4,30 @@
   --background: #F5F0E8;
   --foreground: #1E1B4B;
   --primary: #1E1B4B;
+  --primary-dark: #0F0E1A;
   --accent: #C2714F;
+  --accent-dark: #A85C3A;
+  --surface: #FFFFFF;
+  --surface-2: #F8F5F0;
+  --muted: #8B8680;
+  --border: #E8E2D9;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

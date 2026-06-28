@@ -99,7 +99,7 @@ public class ExamService {
         Question q = new Question();
         q.setText(request.text());
         q.setPoints(request.points());
-        q.setOrder(request.order());
+        q.setOrderIndex(request.order());
         q.setCorrectAnswer(request.correctAnswer());
         q.setExplanation(request.explanation());
         q.setQuestionType(request.questionType());
@@ -113,7 +113,7 @@ public class ExamService {
                 .orElseThrow(() -> new EntityNotFoundException("Question not found"));
         q.setText(request.text());
         q.setPoints(request.points());
-        q.setOrder(request.order());
+        q.setOrderIndex(request.order());
         q.setCorrectAnswer(request.correctAnswer());
         q.setExplanation(request.explanation());
         q.setQuestionType(request.questionType());
@@ -132,7 +132,7 @@ public class ExamService {
         Choice c = new Choice();
         c.setText(request.text());
         c.setCorrect(request.isCorrect());
-        c.setOrder(request.order());
+        c.setOrderIndex(request.order());
         c.setQuestion(question);
         choiceRepository.save(c);
     }
@@ -143,7 +143,7 @@ public class ExamService {
                 .orElseThrow(() -> new EntityNotFoundException("Choice not found"));
         c.setText(request.text());
         c.setCorrect(request.isCorrect());
-        c.setOrder(request.order());
+        c.setOrderIndex(request.order());
         choiceRepository.save(c);
     }
 

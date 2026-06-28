@@ -40,7 +40,7 @@ public class ModuleService {
         Module m = new Module();
         m.setName(request.name());
         m.setDescription(request.description());
-        m.setOrder(request.order());
+        m.setOrderIndex(request.order());
         m.setCoverImageUrl(request.coverImageUrl());
         m.setSemester(semester);
         return ModuleDto.from(moduleRepository.save(m));
@@ -53,7 +53,7 @@ public class ModuleService {
                 .orElseThrow(() -> new EntityNotFoundException("Semester not found"));
         m.setName(request.name());
         m.setDescription(request.description());
-        m.setOrder(request.order());
+        m.setOrderIndex(request.order());
         m.setCoverImageUrl(request.coverImageUrl());
         m.setSemester(semester);
         return ModuleDto.from(moduleRepository.save(m));

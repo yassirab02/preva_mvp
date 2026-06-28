@@ -121,7 +121,7 @@ public class SessionService {
         verifyOwner(session, user);
         verifyInProgress(session);
 
-        List<Question> questions = questionRepository.findByExamIdOrderByOrderAsc(session.getExam().getId());
+        List<Question> questions = questionRepository.findByExamIdOrderByOrderIndexAsc(session.getExam().getId());
         List<UserAnswer> existingAnswers = answerRepository.findBySessionId(sessionId);
 
         for (Question q : questions) {

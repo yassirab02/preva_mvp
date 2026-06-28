@@ -19,7 +19,7 @@ public class Choice extends BaseEntity {
     private boolean isCorrect = false;
 
     @Column(name = "\"order\"", nullable = false)
-    private int order = 0;
+    private int orderIndex = 0;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id", nullable = false)

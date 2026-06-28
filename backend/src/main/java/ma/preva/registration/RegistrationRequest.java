@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import ma.preva.common.BaseEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ma.preva.student.Student;
 import ma.preva.user.User;
 
@@ -22,10 +24,11 @@ public class RegistrationRequest extends BaseEntity {
     @Column(name = "requested_university", nullable = false)
     private String requestedUniversity;
 
-    @Column(name = "requested_major", nullable = false)
+    @Column(name = "requested_major")
     private String requestedMajor;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(nullable = false)
     private RegistrationStatus status = RegistrationStatus.PENDING;
 

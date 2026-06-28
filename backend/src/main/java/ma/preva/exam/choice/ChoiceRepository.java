@@ -7,5 +7,5 @@ import java.util.List;
 
 @Repository
 public interface ChoiceRepository extends JpaRepository<Choice, Long> {
-    List<Choice> findByQuestionIdOrderByOrderAsc(Long questionId);
+    List<Choice> findByQuestionIdOrderByOrderIndexAsc(Long questionId);
 }

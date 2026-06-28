@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import ma.preva.common.BaseEntity;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 import ma.preva.exam.Exam;
 import ma.preva.exam.choice.Choice;
 
@@ -24,7 +26,7 @@ public class Question extends BaseEntity {
     private BigDecimal points;
 
     @Column(name = "\"order\"", nullable = false)
-    private int order = 0;
+    private int orderIndex = 0;
 
     @Column(name = "correct_answer", columnDefinition = "TEXT")
     private String correctAnswer;
@@ -33,6 +35,7 @@ public class Question extends BaseEntity {
     private String explanation;
 
     @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     @Column(name = "question_type", nullable = false)
     private QuestionType questionType = QuestionType.QCM;
 
@@ -41,6 +44,6 @@ public class Question extends BaseEntity {
     private Exam exam;
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @OrderBy("\"order\" ASC")
+    @OrderBy("orderIndex ASC")
     private List<Choice> choices = new ArrayList<>();
 }

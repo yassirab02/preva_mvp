@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { createExam } from '@/lib/api/exams';
 import { getModules } from '@/lib/api/modules';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Input from '@/components/ui/Input';
@@ -30,7 +30,7 @@ export default function NewExamPage() {
   const { data: modules } = useQuery({ queryKey: ['modules-all'], queryFn: () => getModules() });
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema) as Resolver<FormData>,
     defaultValues: { year: new Date().getFullYear(), durationMinutes: 90, totalPoints: 20, passingScore: 50 },
   });
 

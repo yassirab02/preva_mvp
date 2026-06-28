@@ -9,6 +9,6 @@ public record ChoiceDto(
         int order
 ) {
     public static ChoiceDto from(Choice c, boolean showCorrect) {
-        return new ChoiceDto(c.getId(), c.getText(), showCorrect ? c.isCorrect() : null, c.getOrder());
+        return new ChoiceDto(c.getId(), c.getText(), showCorrect ? c.isCorrect() : null, c.getOrderIndex());
     }
 }

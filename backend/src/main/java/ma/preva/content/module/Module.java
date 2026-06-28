@@ -19,7 +19,7 @@ public class Module extends BaseEntity {
     private String description;
 
     @Column(name = "\"order\"", nullable = false)
-    private int order = 0;
+    private int orderIndex = 0;
 
     @Column(name = "is_active", nullable = false)
     private boolean isActive = true;
